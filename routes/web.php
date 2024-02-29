@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\ModuleController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
+Route::get('/', function(){
     return view('welcome');
 });
+Route::get('/etudiant', [EtudiantController::class, 'show']);
+Route::get('/module', [ModuleController::class, 'show']);
