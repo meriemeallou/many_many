@@ -4,31 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<table border=1>
+</table>
+<table class="table">
   <thead>
     <tr>
-      <th>Module</th>
-      <th>Etudiant Name</th>
-      <th>Etudiant Surname</th>
-      <th>Etudiant Age</th>
-
+      <th scope="col">Module</th>
+      <th scope="col">Etudiant Name</th>
+      <th scope="col">Etudiant Surname</th>
+      <th scope="col">Etudiant Age</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($modules as $module) 
-    @foreach ($module->etudiants as $etudiant)
     <tr>
-      <td>{{$module->name}}</td>
-      <td>{{$etudiant->name}}</td>
-      <td>{{$etudiant->surname}}</td>
-      <td>{{$etudiant->age}}</td>
+      <td>
+        {{$module->name}}
+      </td>
+      <td>
+        @foreach ($module->etudiants as $etudiant)
+        {{$etudiant->name}}<br>
+        @endforeach
+      </td>
+      <td>
+      @foreach ($module->etudiants as $etudiant)
+        {{$etudiant->surname}}<br>
+        @endforeach
+      </td>
+      <td>
+      @foreach ($module->etudiants as $etudiant)
+        {{$etudiant->age}}<br>
+        @endforeach
+      </td>
     </tr>
-    @endforeach
     @endforeach
   </tbody>
 </table>
-<a href="/">Back</a>
+<a href="/" class="btn btn-primary" role="button">Back</a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

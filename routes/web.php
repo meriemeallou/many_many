@@ -23,3 +23,7 @@ Route::get('/', function(){
 });
 Route::get('/etudiant', [EtudiantController::class, 'show']);
 Route::get('/module', [ModuleController::class, 'show']);
+Route::get('/update-etudiant/{id}', [EtudiantController::class, 'update_etudiant']);
+Route::put('/update/traitement', [EtudiantController::class, 'update_etudiant_traitement']);
+
+
