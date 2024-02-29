@@ -38,8 +38,8 @@
   </div>
   @foreach ($modules as $module) 
   <div class="mb-3">
-    <label for="name" class="form-label">{{$module->name}}</label>
-    <input type="text" class="form-control" id="name" name="name" value="{{$module->pivot->note}}">
+    <label for="note" class="form-label">{{$module->name}}</label>
+    <input type="text" class="form-control" id="note" name="note" value="{{$module->pivot->note}}">
   @endforeach
   <button type="submit" class="btn btn-primary">Modifier un etudiant</button>
   <a href="/" class="btn btn-primary">Liste des etudiants</a>

@@ -26,17 +26,25 @@ class EtudiantController extends Controller
             'name' =>'required',
             'surname' =>'required',
             'age' =>'required',
+            'note' => 'required',
         ]);
 
-        $etudiant =Etudiant::find($request->id);
+        $etudiant =Etudiant::find($request->id)->with('modules')->get();
         $etudiant->name =$request->name;
         $etudiant->surname =$request->surname;
         $etudiant->age =$request->age;
-
+        $module->pivot->note =$request->note;
+    
+        $etudiant->update();
+        $module->pivot->update();
         
 
-
-        $etudiant->update();
-
         return redirect('/etudiant')->with('status', 'Etudiant a bien ete modifie avec succes');
-    }}
+    }
+    public function delete_etudiant($id){
+        $etudiant = Etudiant::find($id);
+        $etudiant->delete();
+        return redirect('/etudiant')->with('status', 'Etudiant a bien ete supprime avec succes');
+
+    }
+}

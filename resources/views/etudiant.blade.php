@@ -39,9 +39,6 @@
         <a href="/delete-etudiant/{{$etudiant->id}}" class="btn btn-outline-danger">Delete</a>
 
       </td>
-
-        
-    
     </tr>
     @endforeach
   </tbody>
