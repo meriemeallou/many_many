@@ -23,9 +23,6 @@ Route::get('/', function(){
 });
 Route::get('/etudiant', [EtudiantController::class, 'show']);
 Route::get('/module', [ModuleController::class, 'show']);
-Route::get('/update-etudiant/{id}', [EtudiantController::class, 'update_etudiant']);
-Route::put('/update/traitement', [EtudiantController::class, 'update_etudiant_traitement']);
+Route::post('/etudiant/update', [EtudiantController::class, 'update_etudiant_traitement'])->name('update_etudiant_traitement');
+Route::get('/etudiant/update/{id}', [EtudiantController::class, 'update_etudiant'])->name('update_etudiant');
 Route::get('/delete-etudiant/{id}', [EtudiantController::class, 'delete_etudiant']);
-
-
-
